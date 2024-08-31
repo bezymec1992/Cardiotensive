@@ -1,0 +1,145 @@
+.logo {
+  color: $black;
+  font-size: 32px;
+  cursor: pointer;
+
+  @include sm {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .logo-span {
+    color: $red;
+  }
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  padding: 15px 0;
+  height: 70px;
+
+  @include sm {
+    position: relative;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @include sm {
+    width: 100%;
+    height: 0%;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    z-index: -1;
+    top: 70px;
+    right: 0;
+    background-color: $white;
+    transition: ease 0.3s;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.link {
+  font-size: 22px;
+  cursor: pointer;
+  padding: 20px 15px;
+  transition: 0.5s;
+  color: $black;
+
+  &:hover {
+    color: $red;
+    border-bottom: 4px $red solid;
+    transition: 0.5s;
+
+    @include sm {
+      border-bottom: unset;
+    }
+  }
+
+  @include sm {
+    font-size: 18px;
+  }
+}
+
+.open .nav-links {
+  transition: ease 0.3s;
+  top: 70px;
+  right: 0;
+  height: calc(100vh - 70px);
+  opacity: 1;
+  visibility: visible;
+  width: 100%;
+  z-index: 1;
+  transform: unset;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-link {
+    text-align: center;
+    width: 90vw;
+  }
+
+  /* burger styles */
+  .burger {
+    background-color: transparent;
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    z-index: 100;
+  }
+
+  .burger span {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    border-bottom: 0.2rem solid $black;
+    height: 0;
+    -webkit-transition: ease 0.5s;
+    transition: ease 0.5s;
+  }
+
+  .burger span:nth-child(1) {
+    margin-top: -0.6rem;
+  }
+
+  .burger span:nth-child(2) {
+    margin-top: 0.6rem;
+  }
+
+
+  .open .burger span:nth-child(1) {
+    margin-top: -0.6rem;
+    margin-top: 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .open .burger span:nth-child(2) {
+    margin-top: 0.6rem;
+    margin-top: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  .open .burger span:nth-child(3) {
+    margin-left: -1rem;
+    opacity: 0;
+    visibility: hidden;
+  }
+}

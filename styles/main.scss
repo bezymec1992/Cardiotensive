@@ -1,0 +1,65 @@
+/* main seaction */
+.main {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  position: relative;
+
+  .pill {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%);
+
+    @include sm {
+      display: none;
+    }
+  }
+
+  .main__wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    img {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .main__title {
+    font-size: 46px;
+    padding-bottom: 20px;
+    max-width: 500px;
+
+    span {
+      color: $red;
+    }
+  }
+
+  .main__txt {
+    font-size: 26px;
+    max-width: 500px;
+    font-weight: 300;
+    color: $light-green;
+  }
+
+  @include sm {
+    .main__wrapper {
+      flex-direction: column;
+
+      img {
+        margin-top: 20px;
+        max-width: unset;
+      }
+    }
+
+    .main__title {
+      font-size: 28px
+    }
+
+    .main__txt {
+      font-size: 22px;
+    }
+  }
+}
